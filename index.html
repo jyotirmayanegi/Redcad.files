@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>RCF Store — Red Card Files Official Merch</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
+
+  :root {
+    --red: #E24B4A;
+    --red-dark: #A32D2D;
+    --red-light: #F7C1C1;
+    --black: #111111;
+    --dark: #1a1a1a;
+    --gray: #888780;
+    --light-gray: #f5f4f0;
+    --white: #ffffff;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+    background: rgba(17,17,17,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .logo-card {
+    width: 28px; height: 36px;
+    background: var(--red);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px; color: white; letter-spacing: 1px;
+  }
+  .logo-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; letter-spacing: 2px; color: var(--white);
+  }
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; color: var(--gray);
+    font-size: 13px; font-weight: 500; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-right { display: flex; align-items: center; gap: 16px; }
+  .cart-btn {
+    background: var(--red);
+    border: none; border-radius: 6px;
+    color: white; font-size: 13px; font-weight: 600;
+    padding: 8px 18px; cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: background 0.2s;
+  }
+  .cart-btn:hover { background: var(--red-dark); }
+  .cart-count {
+    background: white; color: var(--red);
+    border-radius: 50%; width: 18px; height: 18px;
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding-top: 64px;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    background: var(--black);
+  }
+  .hero-bg-text {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(120px, 22vw, 320px);
+    color: rgba(226,75,74,0.04);
+    white-space: nowrap;
+    pointer-events: none; user-select: none;
+    letter-spacing: 4px;
+  }
+  .hero-inner {
+    width: 90%; max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 60px; align-items: center;
+    position: relative; z-index: 1;
+    padding: 80px 0;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(226,75,74,0.12);
+    border: 0.5px solid rgba(226,75,74,0.3);
+    border-radius: 4px;
+    padding: 5px 12px;
+    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    color: var(--red); text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow span { width: 6px; height: 6px; background: var(--red); border-radius: 50%; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 7vw, 96px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { color: var(--red); font-style: normal; }
+  .hero-sub {
+    font-size: 15px; color: var(--gray); line-height: 1.7;
+    max-width: 440px; margin-bottom: 36px;
+  }
+  .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red); color: white;
+    border: none; border-radius: 6px;
+    padding: 14px 28px; font-size: 14px; font-weight: 600;
+    cursor: pointer; transition: background 0.2s, transform 0.1s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: white;
+    border: 0.5px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    padding: 14px 28px; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: border-color 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.5); }
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 48px;
+    padding-top: 32px;
+    border-top: 0.5px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; color: var(--red); line-height: 1;
+  }
+  .stat-label { font-size: 11px; color: var(--gray); margin-top: 4px; letter-spacing: 0.5px; }
+
+  /* jersey visual */
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .jersey-showcase {
+    width: 340px; height: 400px;
+    position: relative;
+  }
+  .jersey-card-main {
+    width: 100%; height: 100%;
+    background: var(--dark);
+    border-radius: 16px;
+    border: 0.5px solid rgba(226,75,74,0.2);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .jersey-card-main svg { width: 75%; height: 75%; }
+  .jersey-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--red); color: white;
+    font-size: 10px; font-weight: 700;
+    padding: 4px 10px; border-radius: 4px; letter-spacing: 1px;
+  }
+  .jersey-price-tag {
+    position: absolute; bottom: 16px; right: 16px;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(6px);
+    border: 0.5px solid var(--border);
+    border-radius: 8px; padding: 10px 14px;
+  }
+  .price-main { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--red); }
+  .price-label { font-size: 10px; color: var(--gray); margin-top: 2px; }
+  .floating-tag {
+    position: absolute; top: -16px; right: -16px;
+    background: var(--red);
+    border-radius: 50%; width: 72px; height: 72px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    animation: float 3s ease-in-out infinite;
+  }
+  .floating-tag span:first-child { font-size: 10px; color: rgba(255,255,255,0.7); }
+  .floating-tag span:last-child { font-size: 16px; color: white; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 80px 5%; }
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 3px;
+    color: var(--red); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: 1px; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .section-sub { font-size: 14px; color: var(--gray); max-width: 480px; line-height: 1.7; margin-bottom: 40px; }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--red);
+    padding: 10px 0; overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex; gap: 48px;
+    animation: ticker 24s linear infinite;
+  }
+  .ticker-inner span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px; letter-spacing: 2px; color: white;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .ticker-inner span::after { content: '●'; font-size: 6px; opacity: 0.6; }
+  @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+  /* ── CATEGORIES ── */
+  .categories { background: var(--dark); }
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .cat-card {
+    background: var(--black);
+    border-radius: 12px;
+    border: 0.5px solid var(--border);
+    padding: 28px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+    text-align: center;
+  }
+  .cat-card:hover { border-color: rgba(226,75,74,0.4); transform: translateY(-3px); }
+  .cat-icon { font-size: 36px; margin-bottom: 12px; }
+  .cat-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; margin-bottom: 6px; }
+  .cat-count { font-size: 12px; color: var(--gray); }
+
+  /* ── PRODUCTS ── */
+  .products { background: var(--black); }
+  .filter-bar {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .filter-btn {
+    background: transparent; color: var(--gray);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 7px 18px;
+    font-size: 12px; font-weight: 500; cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--red); color: white; border-color: var(--red);
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .product-card {
+    background: var(--dark);
+    border-radius: 14px;
+    border: 0.5px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .product-card:hover { transform: translateY(-4px); border-color: rgba(226,75,74,0.3); }
+  .product-img {
+    height: 240px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .product-img svg { width: 65%; height: 65%; }
+  .product-tag {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    padding: 3px 8px; border-radius: 4px;
+  }
+  .tag-new { background: var(--red); color: white; }
+  .tag-limited { background: #EF9F27; color: #412402; }
+  .tag-sold { background: rgba(255,255,255,0.1); color: var(--gray); }
+  .wishlist-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: rgba(0,0,0,0.5); border: none;
+    border-radius: 50%; width: 32px; height: 32px;
+    color: var(--gray); cursor: pointer; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+    transition: color 0.2s;
+  }
+  .wishlist-btn:hover { color: var(--red); }
+  .product-info { padding: 16px; }
+  .product-name { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .product-type { font-size: 12px; color: var(--gray); margin-bottom: 12px; }
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; color: var(--red);
+  }
+  .product-price .original {
+    font-size: 14px; color: var(--gray);
+    text-decoration: line-through; margin-left: 6px;
+    font-family: 'Inter', sans-serif;
+  }
+  .add-to-cart {
+    background: var(--red); color: white; border: none;
+    border-radius: 6px; padding: 8px 14px;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .add-to-cart:hover { background: var(--red-dark); }
+  .size-dots { display: flex; gap: 4px; margin-bottom: 10px; }
+  .size-dot {
+    width: 22px; height: 22px; border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+    border: 0.5px solid var(--border);
+    font-size: 9px; display: flex; align-items: center; justify-content: center;
+    color: var(--gray); cursor: pointer;
+  }
+  .size-dot:hover { border-color: var(--red); color: var(--red); }
+
+  /* ── FEATURED DROPS ── */
+  .drops { background: var(--dark); }
+  .drops-grid {
+    display: grid; grid-template-columns: 2fr 1fr;
+    gap: 16px;
+  }
+  .drop-main {
+    background: var(--black);
+    border-radius: 16px;
+    border: 0.5px solid rgba(226,75,74,0.2);
+    padding: 40px;
+    display: flex; align-items: center; gap: 40px;
+    position: relative; overflow: hidden;
+  }
+  .drop-main::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(226,75,74,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .drop-main-visual { flex-shrink: 0; }
+  .drop-main-visual svg { width: 180px; height: 200px; }
+  .drop-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 2px;
+    color: var(--red); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .drop-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; line-height: 1; letter-spacing: 1px; margin-bottom: 12px;
+  }
+  .drop-desc { font-size: 13px; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
+  .drop-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; color: var(--red); margin-bottom: 16px;
+  }
+  .drop-side { display: flex; flex-direction: column; gap: 16px; }
+  .drop-small {
+    background: var(--black);
+    border-radius: 14px;
+    border: 0.5px solid var(--border);
+    padding: 20px; flex: 1;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+  .drop-small:hover { border-color: rgba(226,75,74,0.3); }
+  .drop-small svg { width: 80px; height: 80px; margin-bottom: 10px; }
+  .drop-small-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .drop-small-price { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--red); }
+
+  /* ── ACCESSORIES ── */
+  .accessories { background: var(--black); }
+  .acc-grid {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+  }
+  .acc-card {
+    background: var(--dark); border-radius: 12px;
+    border: 0.5px solid var(--border);
+    padding: 20px; text-align: center;
+    transition: all 0.2s; cursor: pointer;
+  }
+  .acc-card:hover { border-color: rgba(226,75,74,0.3); transform: translateY(-2px); }
+  .acc-img { font-size: 48px; margin-bottom: 12px; }
+  .acc-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .acc-price { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--red); }
+
+  /* ── TRUST STRIP ── */
+  .trust { background: var(--dark); }
+  .trust-grid {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 24px;
+  }
+  .trust-item { text-align: center; }
+  .trust-icon { font-size: 28px; margin-bottom: 10px; }
+  .trust-title { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+  .trust-sub { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+  /* ── NEWSLETTER ── */
+  .newsletter {
+    background: var(--red);
+    text-align: center; padding: 64px 5%;
+  }
+  .newsletter h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: 2px; margin-bottom: 10px;
+  }
+  .newsletter p { font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 28px; }
+  .nl-form { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .nl-form input {
+    padding: 12px 20px; border-radius: 6px;
+    border: none; background: rgba(0,0,0,0.2);
+    color: white; font-size: 14px; width: 300px;
+    outline: none;
+  }
+  .nl-form input::placeholder { color: rgba(255,255,255,0.5); }
+  .nl-form button {
+    background: var(--black); color: white;
+    border: none; border-radius: 6px;
+    padding: 12px 24px; font-size: 14px; font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 0.5px solid var(--border);
+    padding: 48px 5% 24px;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px; margin-bottom: 40px;
+  }
+  .footer-brand p { font-size: 13px; color: var(--gray); line-height: 1.7; margin-top: 12px; max-width: 280px; }
+  .footer-col h4 { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom {
+    border-top: 0.5px solid var(--border);
+    padding-top: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-bottom p { font-size: 12px; color: var(--gray); }
+  .social-links { display: flex; gap: 14px; }
+  .social-links a {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,0.06); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; text-decoration: none; color: var(--gray);
+    transition: background 0.2s, color 0.2s;
+  }
+  .social-links a:hover { background: var(--red); color: white; }
+
+  /* ── CART DRAWER ── */
+  .cart-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.6);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+  .cart-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
+    width: 380px; background: var(--dark);
+    border-left: 0.5px solid var(--border);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    display: flex; flex-direction: column;
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-head {
+    padding: 20px 24px;
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-head h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; }
+  .close-btn {
+    background: none; border: none; color: var(--gray);
+    font-size: 20px; cursor: pointer; transition: color 0.2s;
+  }
+  .close-btn:hover { color: white; }
+  .cart-items { flex: 1; overflow-y: auto; padding: 20px 24px; }
+  .cart-empty { text-align: center; color: var(--gray); padding: 60px 0; font-size: 14px; }
+  .cart-item {
+    display: flex; gap: 14px; padding: 14px 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .cart-item-img {
+    width: 64px; height: 64px; background: var(--black);
+    border-radius: 8px; border: 0.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; flex-shrink: 0;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .cart-item-size { font-size: 11px; color: var(--gray); margin-bottom: 8px; }
+  .cart-item-footer { display: flex; align-items: center; justify-content: space-between; }
+  .cart-item-price { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--red); }
+  .qty-controls { display: flex; align-items: center; gap: 10px; }
+  .qty-btn {
+    background: rgba(255,255,255,0.06); border: none;
+    color: white; width: 24px; height: 24px; border-radius: 4px;
+    cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center;
+  }
+  .qty-num { font-size: 13px; min-width: 16px; text-align: center; }
+  .cart-footer { padding: 20px 24px; border-top: 0.5px solid var(--border); }
+  .cart-total {
+    display: flex; justify-content: space-between;
+    margin-bottom: 16px; font-size: 14px;
+  }
+  .cart-total-num { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--red); }
+  .checkout-btn {
+    width: 100%; background: var(--red); color: white;
+    border: none; border-radius: 8px;
+    padding: 14px; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: background 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .checkout-btn:hover { background: var(--red-dark); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
+    background: var(--dark); color: white;
+    border: 0.5px solid rgba(226,75,74,0.4);
+    border-radius: 8px; padding: 12px 20px;
+    font-size: 13px; font-weight: 500;
+    z-index: 300; transition: transform 0.3s ease;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .cat-grid, .acc-grid, .trust-grid { grid-template-columns: repeat(2,1fr); }
+    .drops-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+    .cart-drawer { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-card">RC</div>
+    <span class="logo-text">RCF Store</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Jerseys</a></li>
+    <li><a href="#drops">New Drops</a></li>
+    <li><a href="#accessories">Accessories</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">FOOTBALL</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span></span> New Drop — 2025 Collection</div>
+      <h1>Wear The <em>Game.</em><br>Own The <em>Truth.</em></h1>
+      <p class="hero-sub">Official Red Card Files merch — jerseys and accessories for fans who know football beyond the scoreline. Limited drops. No restocks.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-primary">Shop Jerseys</a>
+        <a href="#drops" class="btn-secondary">New Drops →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">9+</div>
+          <div class="stat-label">Jersey Styles</div>
+        </div>
+        <div>
+          <div class="stat-num">4K+</div>
+          <div class="stat-label">Fans Worldwide</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Premium Quality</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="jersey-showcase">
+        <div class="jersey-card-main">
+          <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="70,20 50,35 40,50 38,140 38,200 162,200 162,140 160,50 150,35 130,20" fill="#1a1a1a"/>
+            <polygon points="50,35 40,50 52,62 68,48" fill="#ffffff" opacity="0.15"/>
+            <polygon points="150,35 160,50 148,62 132,48" fill="#ffffff" opacity="0.15"/>
+            <rect x="54" y="80" width="92" height="3" rx="1" fill="#E24B4A" opacity="0.6"/>
+            <rect x="60" y="90" width="80" height="3" rx="1" fill="#E24B4A" opacity="0.4"/>
+            <polygon points="38,50 15,62 12,130 38,130" fill="#1a1a1a"/>
+            <rect x="16" y="88" width="20" height="10" rx="3" fill="#E24B4A"/>
+            <text x="26" y="97" font-family="Arial" font-size="5.5" font-weight="700" fill="white" text-anchor="middle">RCFiles</text>
+            <polygon points="162,50 185,62 188,130 162,130" fill="#1a1a1a"/>
+            <rect x="166" y="88" width="20" height="10" rx="3" fill="#E24B4A"/>
+            <text x="176" y="97" font-family="Arial" font-size="5.5" font-weight="700" fill="white" text-anchor="middle">RCFiles</text>
+            <circle cx="96" cy="68" r="18" fill="#E24B4A" stroke="white" stroke-width="1.5"/>
+            <text x="96" y="65" font-family="Georgia" font-size="9" font-weight="700" fill="white" text-anchor="middle">RC</text>
+            <text x="96" y="77" font-family="Georgia" font-size="7" fill="white" text-anchor="middle">FILES</text>
+            <text x="100" y="160" font-family="Arial" font-size="10" font-weight="700" fill="white" text-anchor="middle" opacity="0.5">RED CARD FILES</text>
+            <path d="M70,20 Q100,36 130,20" fill="none" stroke="#333" stroke-width="3"/>
+          </svg>
+          <div class="jersey-badge">NEW DROP</div>
+          <div class="jersey-price-tag">
+            <div class="price-main">₹1,299</div>
+            <div class="price-label">Dark Strike Jersey</div>
+          </div>
+        </div>
+        <div class="floating-tag">
+          <span>LIMITED</span>
+          <span>EDITION</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner" id="ticker">
+    <span>Free shipping above ₹1,999</span>
+    <span>Limited edition drops every week</span>
+    <span>RCFiles sleeve logo on every jersey</span>
+    <span>Premium quality polyester fabric</span>
+    <span>Sizes: S M L XL XXL</span>
+    <span>Free shipping above ₹1,999</span>
+    <span>Limited edition drops every week</span>
+    <span>RCFiles sleeve logo on every jersey</span>
+    <span>Premium quality polyester fabric</span>
+    <span>Sizes: S M L XL XXL</span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-eyebrow">Browse by type</div>
+  <div class="section-title">Shop by Category</div>
+  <p class="section-sub">From match-day jerseys to streetwear-ready tees — gear for every kind of football fan.</p>
+  <div class="cat-grid">
+    <div class="cat-card" onclick="filterProducts('jersey')">
+      <div class="cat-icon">⚽</div>
+      <div class="cat-name">Jerseys</div>
+      <div class="cat-count">9 styles</div>
+    </div>
+    <div class="cat-card" onclick="filterProducts('tee')">
+      <div class="cat-icon">👕</div>
+      <div class="cat-name">Tees</div>
+      <div class="cat-count">6 styles</div>
+    </div>
+    <div class="cat-card" onclick="filterProducts('jacket')">
+      <div class="cat-icon">🧥</div>
+      <div class="cat-name">Jackets</div>
+      <div class="cat-count">3 styles</div>
+    </div>
+    <div class="cat-card" onclick="filterProducts('accessories')">
+      <div class="cat-icon">🎽</div>
+      <div class="cat-name">Accessories</div>
+      <div class="cat-count">12 items</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-eyebrow">The Collection</div>
+  <div class="section-title">All Products</div>
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="setFilter(this,'all')">All</button>
+    <button class="filter-btn" onclick="setFilter(this,'jersey')">Jerseys</button>
+    <button class="filter-btn" onclick="setFilter(this,'tee')">Tees</button>
+    <button class="filter-btn" onclick="setFilter(this,'jacket')">Jackets</button>
+    <button class="filter-btn" onclick="setFilter(this,'new')">New Drops</button>
+    <button class="filter-btn" onclick="setFilter(this,'limited')">Limited</button>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+</section>
+
+<!-- FEATURED DROP -->
+<section class="drops" id="drops">
+  <div class="section-eyebrow">Featured Drop</div>
+  <div class="section-title">This Week's Drops</div>
+  <div class="drops-grid">
+    <div class="drop-main">
+      <div class="drop-main-visual">
+        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="70,20 50,35 40,50 38,140 38,200 162,200 162,140 160,50 150,35 130,20" fill="#1D3A1D"/>
+          <line x1="55" y1="48" x2="55" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <line x1="70" y1="42" x2="70" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <line x1="85" y1="38" x2="85" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <line x1="100" y1="36" x2="100" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <line x1="115" y1="36" x2="115" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <line x1="130" y1="38" x2="130" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <line x1="145" y1="42" x2="145" y2="200" stroke="#C0DD97" stroke-width="1" opacity="0.5"/>
+          <polygon points="38,50 15,62 12,130 38,130" fill="#1D3A1D"/>
+          <rect x="16" y="88" width="20" height="10" rx="3" fill="#E24B4A"/>
+          <text x="26" y="97" font-family="Arial" font-size="5.5" font-weight="700" fill="white" text-anchor="middle">RCFiles</text>
+          <polygon points="162,50 185,62 188,130 162,130" fill="#1D3A1D"/>
+          <rect x="166" y="88" width="20" height="10" rx="3" fill="#E24B4A"/>
+          <text x="176" y="97" font-family="Arial" font-size="5.5" font-weight="700" fill="white" text-anchor="middle">RCFiles</text>
+          <path d="M70,20 Q100,34 130,20" fill="none" stroke="#C0DD97" stroke-width="2" opacity="0.7"/>
+          <circle cx="96" cy="68" r="18" fill="#E24B4A" stroke="#C0DD97" stroke-width="1.5"/>
+          <text x="96" y="65" font-family="Georgia" font-size="9" font-weight="700" fill="white" text-anchor="middle">RC</text>
+          <text x="96" y="77" font-family="Georgia" font-size="7" fill="white" text-anchor="middle">FILES</text>
+        </svg>
+      </div>
+      <div class="drop-info">
+        <div class="drop-label">⚡ Limited Drop</div>
+        <div class="drop-title">Pinstripe Elite Jersey</div>
+        <p class="drop-desc">Forest green with cream pinstripes and shoulder taping. Inspired by the Adidas x Juventus collab aesthetic. RCFiles badge on both sleeves.</p>
+        <div class="drop-price">₹1,499</div>
+        <div class="size-dots">
+          <div class="size-dot">S</div>
+          <div class="size-dot">M</div>
+          <div class="size-dot">L</div>
+          <div class="size-dot">XL</div>
+          <div class="size-dot">XXL</div>
+        </div>
+        <button class="btn-primary" onclick="addToCart('Pinstripe Elite Jersey','₹1,499','⚽')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="drop-side">
+      <div class="drop-small" onclick="addToCart('Dark Aztec Jersey','₹1,299','⚽')">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="35,8 25,16 20,24 19,66 19,90 81,90 81,66 80,24 75,16 65,8" fill="#111111"/>
+          <rect x="28" y="30" width="8" height="8" rx="1" fill="#378ADD" opacity="0.6"/>
+          <rect x="40" y="22" width="8" height="8" rx="1" fill="#378ADD" opacity="0.5"/>
+          <rect x="52" y="30" width="8" height="8" rx="1" fill="#378ADD" opacity="0.6"/>
+          <rect x="64" y="22" width="8" height="8" rx="1" fill="#378ADD" opacity="0.5"/>
+          <circle cx="50" cy="50" r="10" fill="#E24B4A"/>
+          <text x="50" y="47" font-family="Arial" font-size="5" font-weight="700" fill="white" text-anchor="middle">RC</text>
+          <text x="50" y="55" font-family="Arial" font-size="4" fill="white" text-anchor="middle">FILES</text>
+        </svg>
+        <div>
+          <div class="drop-small-name">Dark Aztec Jersey</div>
+          <div class="drop-small-price">₹1,299</div>
+        </div>
+      </div>
+      <div class="drop-small" onclick="addToCart('Blaugrana Block Jersey','₹1,399','⚽')">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="35,8 25,16 20,24 19,66 19,90 81,90 81,66 80,24 75,16 65,8" fill="#26215C"/>
+          <rect x="24" y="24" width="12" height="66" fill="#791F1F"/>
+          <rect x="44" y="16" width="12" height="74" fill="#791F1F"/>
+          <rect x="64" y="24" width="12" height="66" fill="#791F1F"/>
+          <circle cx="50" cy="42" r="10" fill="#E24B4A"/>
+          <text x="50" y="39" font-family="Arial" font-size="5" font-weight="700" fill="white" text-anchor="middle">RC</text>
+          <text x="50" y="47" font-family="Arial" font-size="4" fill="white" text-anchor="middle">FILES</text>
+        </svg>
+        <div>
+          <div class="drop-small-name">Blaugrana Block Jersey</div>
+          <div class="drop-small-price">₹1,399</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section class="accessories" id="accessories">
+  <div class="section-eyebrow">Complete your kit</div>
+  <div class="section-title">Accessories</div>
+  <p class="section-sub">Everything a football fan needs beyond the jersey.</p>
+  <div class="acc-grid">
+    <div class="acc-card" onclick="addToCart('RCF Snapback Cap','₹699','🧢')">
+      <div class="acc-img">🧢</div>
+      <div class="acc-name">RCF Snapback Cap</div>
+      <div class="acc-price">₹699</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('Football Scarf','₹499','🧣')">
+      <div class="acc-img">🧣</div>
+      <div class="acc-name">Football Scarf</div>
+      <div class="acc-price">₹499</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('RCF Wristband','₹199','⌚')">
+      <div class="acc-img">⌚</div>
+      <div class="acc-name">RCF Wristband</div>
+      <div class="acc-price">₹199</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('Football Bag','₹899','🎒')">
+      <div class="acc-img">🎒</div>
+      <div class="acc-name">Training Bag</div>
+      <div class="acc-price">₹899</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('RCF Socks','₹249','🧦')">
+      <div class="acc-img">🧦</div>
+      <div class="acc-name">RCF Grip Socks</div>
+      <div class="acc-price">₹249</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('Phone Case','₹349','📱')">
+      <div class="acc-img">📱</div>
+      <div class="acc-name">RCF Phone Case</div>
+      <div class="acc-price">₹349</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('Keychain','₹149','🔑')">
+      <div class="acc-img">🔑</div>
+      <div class="acc-name">Red Card Keychain</div>
+      <div class="acc-price">₹149</div>
+    </div>
+    <div class="acc-card" onclick="addToCart('Sticker Pack','₹99','🎯')">
+      <div class="acc-img">🎯</div>
+      <div class="acc-name">Sticker Pack (10x)</div>
+      <div class="acc-price">₹99</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" id="about">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">🚚</div>
+      <div class="trust-title">Free Shipping</div>
+      <div class="trust-sub">On all orders above ₹1,999. Pan-India delivery in 5–7 days.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔁</div>
+      <div class="trust-title">Easy Returns</div>
+      <div class="trust-sub">7-day hassle-free returns if you're not happy with your order.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🏆</div>
+      <div class="trust-title">Premium Quality</div>
+      <div class="trust-sub">Polyester dry-fit fabric. Embroidered crest. No iron-on prints.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <div class="trust-title">Secure Checkout</div>
+      <div class="trust-sub">UPI, Cards, Wallets — 100% secure encrypted payments.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Get Early Drop Access</h2>
+  <p>Subscribe to get notified before every limited drop. Subscribers get 10% off their first order.</p>
+  <div class="nl-form">
+    <input type="email" placeholder="your@email.com"/>
+    <button onclick="subscribeNL(this)">Subscribe</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="logo-card">RC</div>
+        <span class="logo-text">RCF Store</span>
+      </div>
+      <p>Official merch of Red Card Files — the YouTube channel covering football scandals, FIFA controversies, and player drama. No filter. No spin.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Jerseys</a></li>
+        <li><a href="#">Tees</a></li>
+        <li><a href="#">Jackets</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">YouTube Channel</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter/X</a></li>
+        <li><a href="#">WhatsApp</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Red Card Files. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">▶</a>
+      <a href="#">📸</a>
+      <a href="#">𝕏</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list">
+    <div class="cart-empty">Your cart is empty.<br>Add some jerseys! ⚽</div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <span class="cart-total-num" id="cart-total">₹0</span>
+    </div>
+    <button class="checkout-btn">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toast-msg">Added to cart</span>
+</div>
+
+<script>
+const products = [
+  { id:1, name:'Dark Strike Jersey', type:'jersey', tag:'new', price:1299, priceNum:1299, color:'#1a1a1a', accent:'#185FA5', emoji:'⚽',
+    desc:'Black/Blue/White — Inter-inspired lightning panels' },
+  { id:2, name:'Blaugrana Block Jersey', type:'jersey', tag:'limited', price:1399, priceNum:1399, color:'#26215C', accent:'#791F1F', emoji:'⚽',
+    desc:'Navy/Maroon vertical stripes — Barcelona-inspired' },
+  { id:3, name:'Dark Aztec Jersey', type:'jersey', tag:'new', price:1299, priceNum:1299, color:'#111', accent:'#378ADD', emoji:'⚽',
+    desc:'Black with blue Aztec diamond pattern' },
+  { id:4, name:'Pinstripe Elite Jersey', type:'jersey', tag:'limited', price:1499, priceNum:1499, color:'#1D3A1D', accent:'#C0DD97', emoji:'⚽',
+    desc:'Forest Green/Cream — Adidas collab aesthetic' },
+  { id:5, name:'Red Heat Trackjacket', type:'jacket', tag:'new', price:1799, priceNum:1799, color:'#7a0000', accent:'#E24B4A', emoji:'🧥',
+    desc:'Zip-up trackjacket — Man Utd classic red inspired' },
+  { id:6, name:'Floral Away Tee', type:'tee', tag:'limited', price:999, priceNum:999, color:'#3d1a1a', accent:'#EF9F27', emoji:'👕',
+    desc:'Maroon all-over floral print — England away tribute' },
+  { id:7, name:'Knit Football Polo', type:'tee', tag:'new', price:1199, priceNum:1199, color:'#f0ede0', accent:'#111', emoji:'👕',
+    desc:'Cream/Black/Gold chevron knit — Germany classic tribute' },
+  { id:8, name:'PSG Marble Tee', type:'tee', tag:'limited', price:1099, priceNum:1099, color:'#042C53', accent:'#85B7EB', emoji:'👕',
+    desc:'Deep blue marble print — Paris street style' },
+];
+
+let cart = [];
+let activeFilter = 'all';
+
+function renderProducts(filter) {
+  const grid = document.getElementById('product-grid');
+  const filtered = filter === 'all' ? products :
+    filter === 'new' ? products.filter(p => p.tag === 'new') :
+    filter === 'limited' ? products.filter(p => p.tag === 'limited') :
+    products.filter(p => p.type === filter);
+
+  grid.innerHTML = filtered.map(p => {
+    const tagClass = p.tag === 'new' ? 'tag-new' : p.tag === 'limited' ? 'tag-limited' : 'tag-sold';
+    const tagLabel = p.tag === 'new' ? 'NEW' : p.tag === 'limited' ? 'LIMITED' : 'SOLD OUT';
+    return `
+    <div class="product-card">
+      <div class="product-img" style="background:${p.color}20;">
+        <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="56,16 40,28 32,40 30,112 30,160 130,160 130,112 128,40 120,28 104,16" fill="${p.color}"/>
+          <rect x="18" y="80" width="18" height="9" rx="2" fill="#E24B4A"/>
+          <text x="27" y="88" font-family="Arial" font-size="4.5" font-weight="700" fill="white" text-anchor="middle">RCFiles</text>
+          <rect x="124" y="80" width="18" height="9" rx="2" fill="#E24B4A"/>
+          <text x="133" y="88" font-family="Arial" font-size="4.5" font-weight="700" fill="white" text-anchor="middle">RCFiles</text>
+          <circle cx="78" cy="58" r="16" fill="#E24B4A" stroke="white" stroke-width="1.5"/>
+          <text x="78" y="55" font-family="Georgia" font-size="8" font-weight="700" fill="white" text-anchor="middle">RC</text>
+          <text x="78" y="66" font-family="Georgia" font-size="6" fill="white" text-anchor="middle">FILES</text>
+          <line x1="50" y1="90" x2="106" y2="90" stroke="${p.accent}" stroke-width="2" opacity="0.6"/>
+          <text x="80" y="130" font-family="Arial" font-size="8" font-weight="700" fill="white" text-anchor="middle" opacity="0.4">RED CARD FILES</text>
+        </svg>
+        <span class="product-tag ${tagClass}">${tagLabel}</span>
+        <button class="wishlist-btn">♡</button>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-type">${p.desc}</div>
+        <div class="size-dots">
+          <div class="size-dot">S</div><div class="size-dot">M</div>
+          <div class="size-dot">L</div><div class="size-dot">XL</div>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">₹${p.price.toLocaleString('en-IN')}</div>
+          <button class="add-to-cart" onclick="addToCart('${p.name}','₹${p.price}','${p.emoji}')">+ Add</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setFilter(btn, filter) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = filter;
+  renderProducts(filter);
+}
+
+function filterProducts(type) {
+  renderProducts(type);
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+function addToCart(name, price, emoji) {
+  const existing = cart.find(i => i.name === name);
+  if (existing) { existing.qty++; }
+  else { cart.push({ name, price, emoji, qty: 1 }); }
+  updateCart();
+  showToast(`${name} added to cart`);
+}
+
+function updateCart() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  document.getElementById('cart-count').textContent = count;
+
+  const list = document.getElementById('cart-items-list');
+  const footer = document.getElementById('cart-footer');
+
+  if (cart.length === 0) {
+    list.innerHTML = '<div class="cart-empty">Your cart is empty.<br>Add some jerseys! ⚽</div>';
+    footer.style.display = 'none';
+    return;
+  }
+  footer.style.display = 'block';
+  list.innerHTML = cart.map((item, i) => `
+    <div class="cart-item">
+      <div class="cart-item-img">${item.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-size">Size: M</div>
+        <div class="cart-item-footer">
+          <div class="cart-item-price">${item.price}</div>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  const total = cart.reduce((s, i) => {
+    const num = parseInt(i.price.replace(/[₹,]/g,''));
+    return s + num * i.qty;
+  }, 0);
+  document.getElementById('cart-total').textContent = '₹' + total.toLocaleString('en-IN');
+}
+
+function changeQty(index, delta) {
+  cart[index].qty += delta;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
+  updateCart();
+}
+
+function toggleCart() {
+  document.getElementById('cart-overlay').classList.toggle('open');
+  document.getElementById('cart-drawer').classList.toggle('open');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function subscribeNL(btn) {
+  btn.textContent = '✓ Subscribed!';
+  btn.style.background = '#1D3A1D';
+  setTimeout(() => { btn.textContent = 'Subscribe'; btn.style.background = ''; }, 3000);
+}
+
+renderProducts('all');
+</script>
+</body>
+</html>
